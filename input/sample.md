@@ -63,6 +63,30 @@ flowchart TD
 
 ---
 
+## 開発手順
+
+**内側から外側へ**の順番で作るのが基本。
+
+```mermaid
+flowchart TD
+    E["① Entity<br>ビジネスルールを定義する"]
+    R["② Repository Interface<br>抽象だけ定義する"]
+    U["③ Use Case<br>ビジネスの処理フロー<br>を書く"]
+    RI["④ Repository実装<br>DBへの実際の<br>アクセスを書く"]
+    C["⑤ Controller<br>HTTPリクエストを<br>UseCaseに渡す"]
+    DI["⑥ DI登録<br>Interfaceと実装を紐づける"]
+
+    E --> R --> U --> RI --> C --> DI
+
+    style E fill:#dda0dd,stroke:#8b008b,color:#000
+    style R fill:#dda0dd,stroke:#8b008b,color:#000
+    style U fill:#90ee90,stroke:#228b22,color:#000
+    style RI fill:#87ceeb,stroke:#4682b4,color:#000
+    style C fill:#87ceeb,stroke:#4682b4,color:#000
+    style DI fill:#f4a460,stroke:#8b4513,color:#000
+```
+---
+
 ## DI の仕組み
 
 ```mermaid
