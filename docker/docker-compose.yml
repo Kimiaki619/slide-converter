@@ -1,0 +1,8 @@
+services:
+  converter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/docs    # takubo_doc 全体をマウント
+    working_dir: /docs
